@@ -10,7 +10,7 @@ export class MainPageComponent implements OnInit {
   constructor() { }
   userId : any;
   ngOnInit() {
-    this.userId = sessionStorage.getItem("userId");
+    this.userId = sessionStorage.getItem("userRefreshToken");
   }
 
 }

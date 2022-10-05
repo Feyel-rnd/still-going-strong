@@ -14,7 +14,8 @@ async function loginEmailPassword(email, password) {
     const user = await app.logIn(credentials);
     // `App.currentUser` updates to match the logged in user
     console.assert(user.id === app.currentUser.id);
-    sessionStorage.setItem("userId", user.id);
+    sessionStorage.setItem("userRefreshToken", user.refreshToken);
+    
     return true;
   } catch (err) {
     console.error('Failed to log in', err);
