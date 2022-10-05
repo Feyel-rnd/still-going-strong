@@ -8,7 +8,10 @@ export class YourGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-      
-    return true;
+      if (sessionStorage.getItem("userRefreshToken")!=undefined){
+    return true;}
+    else {
+      return false
+    }
   }
 }
