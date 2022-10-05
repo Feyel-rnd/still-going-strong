@@ -17,8 +17,9 @@ export class MainPageComponent implements OnInit {
   // app : any
   
   app = new Realm.App('data-icqqg');
-  LogOut(){
-    
+  async LogOut(){
+
+    await this.app.allUsers[sessionStorage.getItem("userId")].logOut()
       sessionStorage.clear();
     
     const redirectUrl = '/login';
@@ -30,7 +31,7 @@ export class MainPageComponent implements OnInit {
     this.app = new Realm.App('data-icqqg')
     //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
     this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
-    console.log(this.app.currentUser)
+    //console.log(this.app.currentUser)
     this.email = sessionStorage.getItem("email");
     this.username = sessionStorage.getItem("username");
     //sessionStorage.getItem("userRefreshToken");

@@ -32,7 +32,7 @@ const routes: Routes = [
  // { path: 'register-component', component: RegisterFormComponent },
   { path: 'create-account', component: SecondaryPageComponent },
   { path: 'check-page-component', component: CheckPageComponent },
-  { path: '**',  redirectTo: '/login', pathMatch: 'full'},
+  { path: '**',  redirectTo: '/dashboard', pathMatch: 'full'},
 ];
 // configures NgModule imports and exports
 @NgModule({
