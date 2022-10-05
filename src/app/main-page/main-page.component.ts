@@ -12,13 +12,16 @@ export class MainPageComponent implements OnInit {
   userRefreshToken : any;
   bla : any;
   username : any;
+  email : any;
   app : any
   //app = new Realm.App('data-icqqg');
   ngOnInit() {
     this.app = new Realm.App('data-icqqg')
     //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
     this.userRefreshToken = this.app.currentUser.refreshToken
-    this.username = this.app.currentUser.id
+    console.log(this.app.currentUser)
+    this.email = this.app.currentUser.profile.email
+    this.username = this.email.split("@")[0]
   }
   
 }
