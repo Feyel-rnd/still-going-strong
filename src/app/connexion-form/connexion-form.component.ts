@@ -13,6 +13,7 @@ async function loginEmailPassword(email, password) {
   try {
     // Authenticate the user
     const user = await app.logIn(credentials);
+    
     // `App.currentUser` updates to match the logged in user
     console.assert(user.id === app.currentUser.id);
     //this.app = new Realm.App('data-icqqg')
