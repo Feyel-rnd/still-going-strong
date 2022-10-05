@@ -4,10 +4,11 @@ import { AppModule } from '../app.module';
 import { MainPageComponent } from './main-page.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialExampleModule } from '../../material/material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule, BrowserModule, MaterialExampleModule
+    CommonModule, BrowserModule, MaterialExampleModule,RouterModule
     //AppModule
   ],
   declarations: [MainPageComponent],
