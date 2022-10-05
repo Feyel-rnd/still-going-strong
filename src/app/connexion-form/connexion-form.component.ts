@@ -9,13 +9,21 @@ async function loginEmailPassword(email, password) {
   // Create an anonymous credential
   const app = new Realm.App('data-icqqg');
   const credentials = Realm.Credentials.emailPassword(email, password);
+  
   try {
     // Authenticate the user
     const user = await app.logIn(credentials);
     // `App.currentUser` updates to match the logged in user
     console.assert(user.id === app.currentUser.id);
-    sessionStorage.setItem("userRefreshToken", user.refreshToken);
-    
+    //this.app = new Realm.App('data-icqqg')
+    //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
+    const userRefreshToken = this.app.currentUser.refreshToken
+    console.log(this.app.currentUser)
+    const email = this.app.currentUser.profile.email
+    const username = this.email.split("@")[0]
+    sessionStorage.setItem("userRefreshToken", userRefreshToken);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("username", username);
     return true;
   } catch (err) {
     console.error('Failed to log in', err);

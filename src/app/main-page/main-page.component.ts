@@ -9,19 +9,22 @@ import * as Realm from 'realm-web';
 export class MainPageComponent implements OnInit {
 
   constructor() { }
-  userRefreshToken : any;
-  bla : any;
-  username : any;
-  email : any;
-  app : any
-  //app = new Realm.App('data-icqqg');
+   userRefreshToken : any;
+  // bla : any;
+   username : any;
+   email : any;
+  // app : any
+  app = new Realm.App('data-icqqg');
   ngOnInit() {
     this.app = new Realm.App('data-icqqg')
     //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
-    this.userRefreshToken = this.app.currentUser.refreshToken
+    this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
     console.log(this.app.currentUser)
-    this.email = this.app.currentUser.profile.email
-    this.username = this.email.split("@")[0]
+    this.email = sessionStorage.getItem("email");
+    this.username = sessionStorage.getItem("username");
+    //sessionStorage.getItem("userRefreshToken");
+    //sessionStorage.getItem("email");
+    //sessionStorage.getItem("username");
   }
   
 }
