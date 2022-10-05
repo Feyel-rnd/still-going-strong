@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MainPageComponent implements OnInit {
 
   constructor() { }
-  userId : any;
+  userRefreshToken : any;
   ngOnInit() {
-    this.userId = sessionStorage.getItem("userRefreshToken");
+    this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
   }
-
+  
 }

@@ -79,16 +79,10 @@ export class ConnexionFormComponent {
       
     }
   }
-  async insert_doc() {
+  async insert_doc(collection : string, doc : any) {
     const mongo = this.app.currentUser.mongoClient('Cluster0');
-    const collection = mongo.db('Data').collection('test');
-    const result = await collection.insertOne({
-      name: 'lily of the valley',
-      sunlight: 'full',
-      color: 'white',
-      type: 'perennial',
-      _partition: 'Store 47',
-    });
-    console.log(result);
+    const collec = mongo.db('Data').collection(collection);
+    const result = await collec.insertOne(doc);
+    //console.log(result);
   }
 }

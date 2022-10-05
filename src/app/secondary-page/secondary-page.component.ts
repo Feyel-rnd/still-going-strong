@@ -60,24 +60,22 @@ export class SecondaryPageComponent {
     if (this.correctForm) {
       //console.log(this.correctForm)
 
-      const user: any = createEmailPassword(email, password);
+      const response: any = createEmailPassword(email, password);
+      const user = {
+        username : email,
+      }
+      //this.insert_doc("users",user)
       this.sent = true;
       //console.log(user.__zone_symbol__value[0])
     } else {
       this.connected = false;
     }
   }
-  async insert_doc() {
+  async insert_doc(collection : string, doc : any) {
     const mongo = this.app.currentUser.mongoClient('Cluster0');
-    const collection = mongo.db('Data').collection('test');
-    const result = await collection.insertOne({
-      name: 'lily of the valley',
-      sunlight: 'full',
-      color: 'white',
-      type: 'perennial',
-      _partition: 'Store 47',
-    });
-    console.log(result);
+    const collec = mongo.db('Data').collection(collection);
+    const result = await collec.insertOne(doc);
+    //console.log(result);
   }
 }
 
