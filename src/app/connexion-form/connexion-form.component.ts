@@ -17,12 +17,12 @@ async function loginEmailPassword(email, password) {
     console.assert(user.id === app.currentUser.id);
     //this.app = new Realm.App('data-icqqg')
     //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");
-    const userRefreshToken = this.app.currentUser.refreshToken
-    console.log(this.app.currentUser)
-    const email = this.app.currentUser.profile.email
-    const username = this.email.split("@")[0]
+    const userRefreshToken = app.currentUser.refreshToken
+    console.log(app.currentUser)
+    const emmail = app.currentUser.profile.email
+    const username = emmail.split("@")[0]
     sessionStorage.setItem("userRefreshToken", userRefreshToken);
-    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("email", emmail);
     sessionStorage.setItem("username", username);
     return true;
   } catch (err) {
