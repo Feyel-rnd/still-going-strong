@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Realm from 'realm-web';
 
 @Component({
@@ -8,13 +9,23 @@ import * as Realm from 'realm-web';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
    userRefreshToken : any;
   // bla : any;
    username : any;
    email : any;
   // app : any
+  
   app = new Realm.App('data-icqqg');
+  LogOut(){
+    
+      sessionStorage.clear();
+    
+    const redirectUrl = '/login';
+  
+          // Redirect the user
+          this.router.navigate([redirectUrl]);
+  }
   ngOnInit() {
     this.app = new Realm.App('data-icqqg')
     //this.userRefreshToken = sessionStorage.getItem("userRefreshToken");

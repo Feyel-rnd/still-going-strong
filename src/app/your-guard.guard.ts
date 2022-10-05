@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class YourGuard implements CanActivate {
+  constructor(public router: Router) { }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -11,6 +13,10 @@ export class YourGuard implements CanActivate {
       if (sessionStorage.getItem("userRefreshToken")!=undefined && sessionStorage.getItem("userRefreshToken")!=""){
     return true;}
     else {
+      const redirectUrl = '/login';
+  
+          // Redirect the user
+          this.router.navigate([redirectUrl]);
       return false
     }
   }
